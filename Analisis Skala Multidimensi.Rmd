@@ -1,0 +1,27 @@
+---
+title: "Analisis Skala Multidimensi"
+author: "Arditya Criszardin"
+date: "2023-05-01"
+output: html_document
+---
+
+```{r}
+# Memasang paket "MASS" jika belum terpasang
+# install.packages("MASS")
+
+# Memuat data
+my_data <- read.csv("my_data.csv")
+
+# Melakukan Analisis Skala Multidimensi dengan menggunakan paket "MASS"
+library(MASS)
+my_mds <- cmdscale(dist(my_data[, -1]))
+
+# Menampilkan hasil Analisis Skala Multidimensi
+my_mds
+
+# Plot hasil Analisis Skala Multidimensi
+plot(my_mds, type = "n")
+text(my_mds, labels = my_data[, 1], cex = 0.8, pos = 4)
+
+```
+
